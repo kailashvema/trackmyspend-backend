@@ -2,6 +2,7 @@ require("dotenv").config(); // ✅ ALWAYS FIRST
 
 const express = require("express");
 const cors = require("cors");
+const app = express();
 app.use(cors({
   origin: "https://clever-pudding-c06232.netlify.app/auth.html"
 }));
