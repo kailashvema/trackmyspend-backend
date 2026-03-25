@@ -1,21 +1,19 @@
-require("dotenv").config(); // ✅ ALWAYS FIRST
+require("dotenv").config();
 
 const express = require("express");
 const cors = require("cors");
-const app = express();
-app.use(cors({
-  origin: "https://clever-pudding-c06232.netlify.app/auth.html"
-}));
-
 const connectDB = require("./config/db");
 
-const app = express();
+const app = express(); // ✅ CREATE FIRST
 
 // ✅ Connect Database
 connectDB();
 
 // ✅ Middlewares
-app.use(cors());
+app.use(cors({
+  origin: "https://clever-pudding-c06232.netlify.app"
+}));
+
 app.use(express.json());
 
 // ✅ Test Route
@@ -27,7 +25,7 @@ app.get("/", (req, res) => {
 app.use("/api/expenses", require("./routes/expenseRoutes"));
 app.use("/api/auth", require("./routes/authRoutes"));
 
-// ✅ PORT (IMPORTANT FOR RENDER)
+// ✅ PORT
 const PORT = process.env.PORT || 5000;
 
 // ✅ Start Server
