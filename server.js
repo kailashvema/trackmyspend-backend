@@ -11,7 +11,7 @@ connectDB();
 
 // ✅ Middlewares
 app.use(cors({
-  origin: "https://clever-pudding-c06232.netlify.app"
+  origin: "https://helpful-dieffenbachia-be8bc2.netlify.app/auth.html"
 }));
 
 app.use(express.json());
